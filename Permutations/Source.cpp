@@ -45,12 +45,16 @@ int main()
 
 unsigned long long int countpaths(list<bool> &paths)
 {
-	unsigned long long int count = 0;
+	unsigned long long int count = 1;
+	for (list<bool>::iterator it = paths.begin(); it != paths.end(); it++)
+		cout << static_cast<int>(*it);
+	cout << "     " << count;
+	cout << endl;
 	while (!inorder(paths)) {
+		count++;
 		nextpath(paths);
 		for (list<bool>::iterator it = paths.begin(); it != paths.end(); it++)
 			cout << static_cast<int>(*it);
-		count++;
 		cout << "     " << count;
 		cout << endl;
 	}
